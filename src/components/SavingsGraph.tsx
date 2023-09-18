@@ -1,6 +1,5 @@
 import { useAccount, useContractRead } from "wagmi";
-import connect from "../constants/connect";
-import splitData from "../helpers/splitData";
+
 import {
   Chart as ChartJs,
   LineElement,
@@ -26,27 +25,16 @@ ChartJs.register(
 const SavingsGraph = () => {
   const { address } = useAccount();
 
-  const { data: history } = useContractRead({
-    address: connect?.address,
-    abi: connect?.abi,
-    functionName: "getHistory",
-    args: [address, "EUR"],
-    watch: true,
-  });
-
-  const [amount, duration] = splitData(history);
-
   const chartData = {
-    labels: duration.map((d) => d),
+    labels: [30, 32, 23, 60, 54, 37].map((d) => d),
     datasets: [
       {
         label: "Amount",
-        data: amount.map((d) => d),
+        data: [100, 200, 120, 100, 50, 37].map((d) => d),
         fill: false,
         borderColor: "rgb(0, 0, 0)",
         tension: 0.1,
-        backgroundColor: "#FFD55A",
-
+        backgroundColor: "rgb(21 128 61 / 0.9)",
         width: 5,
         borderWidth: 1,
         borderRadius: 15,
@@ -59,7 +47,7 @@ const SavingsGraph = () => {
       <h3 className="font-semibold mb-1">Savings Trend</h3>
 
       {history?.length > 0 ? (
-        <Line data={chartData}>Graph here</Line>
+        <Line data={chartData} />
       ) : (
         <div className="text-center">No record found</div>
       )}
