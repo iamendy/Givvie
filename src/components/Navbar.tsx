@@ -46,7 +46,7 @@ const Navbar = () => {
             </>
           )}
 
-          {isConnected && chain?.id !== 10200 && (
+          {isConnected && chain?.id !== 59140 && (
             <button
               className="bg-red-500 rounded-md text-white p-2"
               onClick={openChainModal}

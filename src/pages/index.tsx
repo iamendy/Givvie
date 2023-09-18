@@ -1,10 +1,18 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+
+import Hero from "../components/Hero";
+import Features from "../components/Features";
+import Faq from "../components/Faq";
 
 const Home: NextPage = () => {
-  return <main>Givvie app</main>;
+  return (
+    <main>
+      <Hero />
+      <Features />
+      <Faq />
+    </main>
+  );
 };
 
 export default Home;

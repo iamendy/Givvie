@@ -22,9 +22,9 @@ const Features = () => {
             Easy onRamp, Easy Savings
           </h2>
           <p className="text-sm text-center leading-[1.75em] md:w-[70%] md:mx-auto lg:text-base lg:w-[65%]">
-            Rainfy integrates Monerium to help you save your Euros, Pounds or
-            Sterling securely on Gnosis Blockchain. Earn Rainfy tokens (RAIN) as
-            you hit your savings target.
+            Rainfy integrates Flutterwave and FonBnk to help you convert naira
+            and save USDC on the blockchain. Earn Givvie tokens (GIVV) as you
+            hit your savings target.
           </p>
         </div>
 
@@ -36,11 +36,11 @@ const Features = () => {
               </div>
               <div className="flex flex-col gap-y-[10px]">
                 <h3 className="font-bold text-xl text-base-100 leading-[1.2em] lg:text-2xl">
-                  Gnosis Powered
+                  BlockChain Powered
                 </h3>
                 <p className="lg:text-lg ">
-                  Our vault is built on the security, and speed of Gnosis
-                  blockchain
+                  Our vault is built on the security, and speed of Base and
+                  Linea blockchain.
                 </p>
               </div>
             </div>
@@ -54,8 +54,9 @@ const Features = () => {
                   Flexible Vault
                 </h3>
                 <p className="lg:text-lg lg:w-[90%]">
-                  Save in Euros, Pounds or Sterling. Add more savings as you
-                  wish, and break your piggy bank after your set duration
+                  Save in USDC by onbording with your airtime, mobile money or
+                  debit card. Add more savings as you wish, and break your piggy
+                  bank after your set duration.
                 </p>
               </div>
             </div>
@@ -72,8 +73,8 @@ const Features = () => {
                 </h3>
                 <p className="lg:text-lg lg:w-[90%]">
                   We only charge you when you break your piggy before the
-                  deadline. This discourages impulse spending and helps build a
-                  savings habit
+                  deadline. This discourages impulse spending and helps build
+                  positive financial habits.
                 </p>
               </div>
             </div>
@@ -84,7 +85,7 @@ const Features = () => {
               </h3>
 
               <div className="flex flex-col gap-y-[10px] lg:gap-y-[20px]">
-                <p className="lg:text-lg ">Ready to start saving?</p>
+                <p className="lg:text-lg ">Ready to secure your naira?</p>
 
                 {isConnected ? (
                   <Link
