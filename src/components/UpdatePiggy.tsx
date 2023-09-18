@@ -10,7 +10,7 @@ import connect from "../constants/connect";
 import { ethers } from "ethers";
 import Loader from "./icons/Loader";
 
-const UpdatePiggy = ({ selectedCurrency }) => {
+const UpdatePiggy = () => {
   const [amount, setAmount] = useState("");
   const [isApproved, setIsApproved] = useState(false);
 
