@@ -1,9 +1,10 @@
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import { encodeText } from "../helpers/stringEncoder";
+import { useDebounce } from "../hooks/useDebounce";
 
 const paymentOptions = [
   {
@@ -20,11 +21,20 @@ const DepositNaira = () => {
   const [selected, setSelected] = useState(paymentOptions[0]);
   const [isActive, setIsActive] = useState(true);
   const [amount, setAmount] = useState("");
+  const [amountUSDC, setAmountUSDC] = useState("");
+  const debouncedAmount = useDebounce(amount);
+  const [isFetching, setIsFetching] = useState(false);
   const { address } = useAccount();
+  const [exchange, setExchange] = useState(1000); //use N1k/$ for demo
+
+  //get price API
+  useEffect(() => {
+    setAmountUSDC(debouncedAmount / 1000);
+  }, [debouncedAmount]);
 
   const flutterwaveConfig = {
     public_key: "FLWPUBK_TEST-6cf95a5ea440ce920b79d79ef20a4c8d-X",
-    tx_ref: encodeText(address),
+    tx_ref: encodeText(`${address},${amountUSDC}`),
     amount: amount,
     currency: "NGN",
     payment_options: "card,mobilemoney,ussd",
@@ -58,7 +68,14 @@ const DepositNaira = () => {
             placeholder="NGN"
           ></input>
           <div className="pt-1 ">
-            <span>You will receive 100USDC </span>
+            <span className="flex items-center space-x-2">
+              <span>You will receive:</span>
+              {isFetching ? (
+                <span className=" rounded-sm inline-block bg-slate-200 h-5 w-16 animate-pulse"></span>
+              ) : (
+                <span>{amountUSDC} USDC</span>
+              )}
+            </span>
           </div>
         </div>
       </div>

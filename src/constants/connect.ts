@@ -1,6 +1,6 @@
 const connect = {
   //givvie contract
-  address: "0xEFD7333c0F2c13e46A5C70152f493a4432fAeF4d",
+  address: "0xf489A67CAc0ceEd79850323e35b6446e475CEAa6",
   abi: [
     {
       inputs: [
@@ -311,7 +311,7 @@ const connect = {
   ],
   //givvie token contract
   givv: {
-    address: "0x017EfD05d389F31eA5cA3e8D07FF5248bBC8211b",
+    address: "0x54B30322BeBd0245164B964009fA94F584918E20",
     abi: [
       {
         inputs: [
@@ -598,7 +598,7 @@ const connect = {
   },
   //usdc
   usdc: {
-    address: "0x38ee574e01B9D5EF1B16B0665a140268eF8CE7A0",
+    address: "0x467a789c8A76BB82C463897CFf918B43AEf41A2A",
     abi: [
       {
         inputs: [],
@@ -779,19 +779,6 @@ const connect = {
         type: "function",
       },
       {
-        inputs: [],
-        name: "getMsg",
-        outputs: [
-          {
-            internalType: "string",
-            name: "",
-            type: "string",
-          },
-        ],
-        stateMutability: "view",
-        type: "function",
-      },
-      {
         inputs: [
           {
             internalType: "address",
@@ -812,13 +799,6 @@ const connect = {
             type: "bool",
           },
         ],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
-      {
-        inputs: [],
-        name: "mint",
-        outputs: [],
         stateMutability: "nonpayable",
         type: "function",
       },
@@ -851,19 +831,6 @@ const connect = {
       {
         inputs: [],
         name: "renounceOwnership",
-        outputs: [],
-        stateMutability: "nonpayable",
-        type: "function",
-      },
-      {
-        inputs: [
-          {
-            internalType: "string",
-            name: "_msg",
-            type: "string",
-          },
-        ],
-        name: "setMsg",
         outputs: [],
         stateMutability: "nonpayable",
         type: "function",
