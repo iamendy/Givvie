@@ -13,15 +13,16 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       //decode receiver address and amount
-      const [receiverAddress, amount] = decodeText(tx_ref);
+      const [receiverAddress, amount, chain] = decodeText(tx_ref);
 
       //todo: bank-end should call price API
 
       //prepare txn
       const { request } = await client.simulateContract({
         //@ts-ignore
-        address: connect?.usdc.address,
-        abi: connect?.usdc?.abi,
+        address: connect?.[chain]?.usdc.address,
+        //@ts-ignore
+        abi: connect?.[chain]?.usdc?.abi,
         functionName: "transfer",
         args: [receiverAddress, ethers.parseEther(amount)],
       });

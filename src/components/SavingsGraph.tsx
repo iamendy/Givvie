@@ -1,4 +1,4 @@
-import { useAccount, useContractRead } from "wagmi";
+import { useAccount, useNetwork, useContractRead } from "wagmi";
 
 import {
   Chart as ChartJs,
@@ -11,6 +11,8 @@ import {
   PointElement,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import connect from "../constants/connect";
+import splitData from "../helpers/splitData";
 
 ChartJs.register(
   LineElement,
@@ -24,13 +26,26 @@ ChartJs.register(
 
 const SavingsGraph = () => {
   const { address } = useAccount();
+  const { chain } = useNetwork();
+
+  const { data: history } = useContractRead({
+    //@ts-ignore
+    address: connect?.[chain?.id].address,
+    //@ts-ignore
+    abi: connect?.[chain?.id].abi,
+    functionName: "getHistory",
+    args: [address],
+    watch: true,
+  });
+
+  const [amount, duration] = splitData(history);
 
   const chartData = {
-    labels: [30, 32, 23, 60, 54, 37].map((d) => d),
+    labels: duration.map((d) => d),
     datasets: [
       {
         label: "Amount",
-        data: [100, 200, 120, 100, 50, 37].map((d) => d),
+        data: amount.map((d) => d),
         fill: false,
         borderColor: "rgb(0, 0, 0)",
         tension: 0.1,
@@ -46,11 +61,14 @@ const SavingsGraph = () => {
     <div className="mt-9">
       <h3 className="font-semibold mb-1">Savings Trend</h3>
 
-      {history?.length > 0 ? (
-        <Line data={chartData} />
-      ) : (
-        <div className="text-center">No record found</div>
-      )}
+      {
+        //@ts-ignore
+        history?.length > 0 ? (
+          <Line data={chartData} />
+        ) : (
+          <div className="text-center">No record found</div>
+        )
+      }
     </div>
   );
 };

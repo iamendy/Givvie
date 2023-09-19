@@ -7,6 +7,7 @@ import {
   useAccountModal,
   useChainModal,
 } from "@rainbow-me/rainbowkit";
+import Logo from "./icons/Logo";
 
 const Navbar = () => {
   const { openConnectModal } = useConnectModal();
@@ -18,7 +19,10 @@ const Navbar = () => {
   return (
     <nav>
       <nav className="flex justify-between w-full p-6 2xl:px-24 text-base-100 font-bold border-b border-b-gray ">
-        <Link href="/">Givvie</Link>
+        <Link href="/" className="flex items-center gap-x-1">
+          <Logo />
+          Givvie
+        </Link>
 
         <Menu />
         <div className="hidden lg:flex items-center space-x-9 text-base-100 font-medium leading-[1.6em]">

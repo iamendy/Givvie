@@ -46,9 +46,8 @@ contract Givvie is Ownable {
 
   event Broken(address indexed owner, uint256 saved, uint256 expiredAt);
 
-  constructor(address _usdcTokenAddress, address _givvieTokenAddress) {
+  constructor(address _usdcTokenAddress) {
     usdcTokenAddress = IERC20(_usdcTokenAddress);
-    givvieTokenAddress = IERC20(_givvieTokenAddress);
   }
 
   function createPiggy(uint256 _amount, uint256 _duration) external {
@@ -101,7 +100,7 @@ contract Givvie is Ownable {
       uint256 penaltyBalance = account.balance -
         ((penaltyFee * account.balance) / 100);
 
-      usdcTokenAddress.transferFrom(msg.sender, address(this), penaltyBalance);
+      usdcTokenAddress.transfer(msg.sender, penaltyBalance);
     } else {
       //reward with Givvie token
       usdcTokenAddress.transfer(msg.sender, account.balance);

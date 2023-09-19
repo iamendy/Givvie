@@ -1,5 +1,5 @@
 import {
-  useAccount,
+  useNetwork,
   useContractRead,
   useContractWrite,
   usePrepareContractWrite,
@@ -17,6 +17,8 @@ const NewPiggy = () => {
   const [duration, setDuration] = useState("");
   const [isApproved, setIsApproved] = useState(false);
 
+  const { chain } = useNetwork();
+
   //to check amount input
   const balance = useGetBalance("usdc");
 
@@ -24,10 +26,16 @@ const NewPiggy = () => {
   const debouncedDuration = useDebounce<string>(duration, 500);
 
   const { config } = usePrepareContractWrite({
-    address: connect?.usdc.address,
-    abi: connect?.usdc.abi,
+    //@ts-ignore
+    address: connect?.[chain?.id]?.usdc?.address,
+    //@ts-ignore
+    abi: connect?.[chain?.id]?.usdc?.abi,
     functionName: "approve",
-    args: [connect?.address, ethers.parseEther(debouncedAmount || "0")],
+    args: [
+      //@ts-ignore
+      connect?.[chain?.id].address,
+      ethers.parseEther(debouncedAmount || "0"),
+    ],
   });
 
   const {
@@ -47,8 +55,10 @@ const NewPiggy = () => {
 
   //-- Save -- //
   const { config: saveConfig, refetch } = usePrepareContractWrite({
-    address: connect?.address,
-    abi: connect?.abi,
+    //@ts-ignore
+    address: connect?.[chain?.id].address,
+    //@ts-ignore
+    abi: connect?.[chain?.id].abi,
     functionName: "createPiggy",
     args: [ethers.parseEther(debouncedAmount || "0"), debouncedDuration],
   });
@@ -72,7 +82,7 @@ const NewPiggy = () => {
   });
 
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-3 py-4">
       <div>
         <label htmlFor="" className="text-base font-medium text-gray-900">
           Amount

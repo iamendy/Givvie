@@ -1,13 +1,15 @@
-import { useAccount, useContractRead } from "wagmi";
+import { useAccount, useContractRead, useNetwork } from "wagmi";
 import connect from "../constants/connect";
 
 const useGetRecord = () => {
   const { address } = useAccount();
+  const { chain } = useNetwork();
 
   const { data: record } = useContractRead({
     //@ts-ignore
-    address: connect?.address,
-    abi: connect?.abi,
+    address: connect?.[chain?.id]?.address,
+    //@ts-ignore
+    abi: connect?.[chain?.id]?.abi,
     functionName: "getRecord",
     args: [address],
     watch: true,

@@ -29,8 +29,8 @@ const Faq = () => {
                   2
                 </span>
                 <span>
-                  Deposit naira through USSD, debit card or mobile money to get
-                  in USDC
+                  Deposit Naira through USSD, debit card or mobile money to get
+                  USDC
                 </span>
               </h3>
             </div>

@@ -7,6 +7,7 @@ import {
   useContractWrite,
   usePrepareContractWrite,
   useWaitForTransaction,
+  useNetwork,
 } from "wagmi";
 import connect from "../constants/connect";
 import Loader from "./icons/Loader";
@@ -16,7 +17,7 @@ import Balance from "./icons/Balance";
 const SavingsCard = () => {
   const balance = useGetBalance("usdc");
   const record = useGetRecord();
-
+  const { chain } = useNetwork();
   const [isOpen, setIsOpen] = useState(false);
 
   const { days, hours, minutes, seconds, isCountdownCompleted } = useCountdown(
@@ -26,8 +27,9 @@ const SavingsCard = () => {
 
   const { config, refetch } = usePrepareContractWrite({
     //@ts-ignore
-    address: connect?.address,
-    abi: connect?.abi,
+    address: connect?.[chain?.id].address,
+    //@ts-ignore
+    abi: connect?.[chain?.id].abi,
     functionName: "breakPiggy",
     enabled: false,
   });
@@ -98,28 +100,48 @@ const SavingsCard = () => {
       <div className="flex flex-col gap-y-5">
         <div className="flex items-center justify-between">
           <div className="text-left">
-            <p className="text-xl font-semibold">
-              {
-                //@ts-ignore
-                ethers.formatEther(record?.balance || 0)
-              }
-              USDC
+            <p className="text-xl font-semibold flex flex-col ">
+              <span>
+                {
+                  //@ts-ignore
+                  ethers.formatEther(record?.balance || 0)
+                }
+                USDC
+              </span>
+              <small className="text-xs text-gray/40">
+                ~{" "}
+                {
+                  //@ts-ignore
+                  ethers.formatEther(record?.balance || 0) * 1000
+                }{" "}
+                NGN
+              </small>
             </p>
-            <span className="flex items-center justify-start">
+            <span className="flex items-center justify-start mt-2">
               {" "}
               <Lock /> Locked
             </span>
           </div>
 
           <div className="text-right">
-            <p className="text-xl font-semibold">
-              {
-                //@ts-ignore
-                ethers.formatEther(balance || 0)
-              }
-              USDC
+            <p className="text-xl font-semibold flex flex-col ">
+              <span>
+                {
+                  //@ts-ignore
+                  ethers.formatEther(balance || 0)
+                }
+                USDC
+              </span>
+              <small className="text-xs text-gray/40">
+                ~{" "}
+                {
+                  //@ts-ignore
+                  ethers.formatEther(balance || 0) * 1000
+                }{" "}
+                NGN
+              </small>
             </p>
-            <span className="flex items-center justify-end">
+            <span className="flex items-center justify-end mt-2">
               <Balance /> Bal
             </span>
           </div>

@@ -2,7 +2,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { Fragment, useEffect, useState } from "react";
-import { useAccount } from "wagmi";
+import { useAccount, useNetwork } from "wagmi";
 import { encodeText } from "../helpers/stringEncoder";
 import { useDebounce } from "../hooks/useDebounce";
 
@@ -26,15 +26,17 @@ const DepositNaira = () => {
   const [isFetching, setIsFetching] = useState(false);
   const { address } = useAccount();
   const [exchange, setExchange] = useState(1000); //use N1k/$ for demo
+  const { chain } = useNetwork();
 
   //get price API
   useEffect(() => {
+    //@ts-ignore
     setAmountUSDC(debouncedAmount / 1000);
   }, [debouncedAmount]);
 
   const flutterwaveConfig = {
     public_key: "FLWPUBK_TEST-6cf95a5ea440ce920b79d79ef20a4c8d-X",
-    tx_ref: encodeText(`${address},${amountUSDC}`),
+    tx_ref: encodeText(`${address},${amountUSDC},${chain?.id}`),
     amount: amount,
     currency: "NGN",
     payment_options: "card,mobilemoney,ussd",
@@ -51,6 +53,7 @@ const DepositNaira = () => {
     },
   };
 
+  //@ts-ignore
   const handleFlutterPayment = useFlutterwave(flutterwaveConfig);
 
   return (

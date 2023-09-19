@@ -8,9 +8,13 @@ const RewardCard = () => {
   return (
     <div className=" bg-gray/5 rounded-lg p-8 w-full text-right">
       <p className="text-xl font-semibold">
-        {Math.floor(ethers?.formatEther(balance || "0") * 100) / 100} GIVV
+        {
+          //@ts-ignore
+          Math.floor(ethers?.formatEther(balance || "0") * 100) / 100
+        }{" "}
+        GIVV
       </p>
-      <span className="flex justify-end">
+      <span className="flex justify-end mt-2">
         <Fire />
         Earned
       </span>
