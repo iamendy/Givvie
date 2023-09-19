@@ -1,8 +1,8 @@
 # Givvie x ETHSAFARIDAO [TAKAI]
 
 Live Demo - [Loom](https://www.loom.com) <br />
-Live Link - [Chainwise](https://rainfy.vercel.app) <br />
-Slides - [Slides](https://givvie.vercel.app/GivvieSlides.pdf)
+Live Link - [Chainwise](https://givviedapp.vercel.app) <br />
+Slides - [Slides](https://givviedapp.vercel.app/GivvieSlides.pdf)
 
 ## ✨ Inspiration
 
@@ -10,11 +10,11 @@ Inflation in Africa is on the rise. As of 2022, the overall inflation rate in Su
 
 In Nigeria, where most youths are tech savvy, they're converting their Naira to USD through the banks, to hedge against hyperinflation. This comes with extra overhead of account maintenace costs, service charges and other charges by the bank. This approach tend to create more problem than it solves.
 
-Just like planting a seed that grows into a mighty tree, [Givvie](https://givvie.vercel.app) empowers you to start small and watch your savings flourish over time. With Flutterwave and Fonbnk integration, users can easily purchase USDC through their phone airtime, mobile money and debit cards and save their USDC on the blockchain. Every savings you make is recorded on the blockchain, ensuring the utmost security and transparency. No more hidden fees or surprises – everything is clear and accessible at your fingertips.
+Just like planting a seed that grows into a mighty tree, [Givvie](https://givviedapp.vercel.app) empowers you to start small and watch your savings flourish over time. With Flutterwave and Fonbnk integration, users can easily purchase USDC through their phone airtime, mobile money and debit cards and save their USDC on the blockchain. Every savings you make is recorded on the blockchain, ensuring the utmost security and transparency. No more hidden fees or surprises – everything is clear and accessible at your fingertips.
 
 ## 🍰 What Rainfy does
 
-[Givvie](https://givvie.vercel.app) is not just an onchain savings app; we're your financial companion, your motivator, and your partner in achieving your financial goals.
+[Givvie](https://givviedapp.vercel.app) is not just an onchain savings app; we're your financial companion, your motivator, and your partner in achieving your financial goals.
 
 Our features which includes :
 
