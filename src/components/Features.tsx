@@ -3,9 +3,11 @@ import Calculator from "./icons/Calculator";
 import Carrot from "./icons/Carrot";
 import Customize from "./icons/Customize";
 import { useAccount } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 const Features = () => {
   const { isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
 
   return (
     <section className="py-12 px-6 lg:py-16 lg:px-8">
@@ -95,7 +97,10 @@ const Features = () => {
                     Start saving →
                   </Link>
                 ) : (
-                  <button className="bg-yellow w-fit font-bold text-base-100 px-5 py-2 rounded-lg lg:px-9">
+                  <button
+                    onClick={openConnectModal}
+                    className="bg-yellow w-fit font-bold text-base-100 px-5 py-2 rounded-lg lg:px-9"
+                  >
                     Connect wallet →
                   </button>
                 )}

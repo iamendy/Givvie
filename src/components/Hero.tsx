@@ -3,9 +3,11 @@ import preview from "../../public/img/preview.png";
 import Stroke from "./icons/Stroke";
 import { useAccount } from "wagmi";
 import Link from "next/link";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 const Hero = () => {
   const { isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
 
   return (
     <section className="py-8 px-4 lg:pt-10 lg:px-7 pb-16">
@@ -38,7 +40,10 @@ const Hero = () => {
                 Start saving →
               </Link>
             ) : (
-              <button className="bg-yellow font-bold text-base-100 px-5 py-3 rounded-lg lg:px-9">
+              <button
+                onClick={openConnectModal}
+                className="bg-yellow font-bold text-base-100 px-5 py-3 rounded-lg lg:px-9"
+              >
                 Connect wallet →
               </button>
             )}
