@@ -10,6 +10,8 @@ import {
 } from "wagmi";
 import connect from "../constants/connect";
 import Loader from "./icons/Loader";
+import Lock from "./icons/Lock";
+import Balance from "./icons/Balance";
 
 const SavingsCard = () => {
   const balance = useGetBalance("usdc");
@@ -89,20 +91,26 @@ const SavingsCard = () => {
       )}
       <div className="flex flex-col gap-y-5">
         <div className="flex items-center justify-between">
-          <div>
+          <div className="text-left">
             <p className="text-xl font-semibold">
               {Math.floor(ethers?.formatEther(record?.balance || "0") * 100) /
                 100}{" "}
               USDC
             </p>
-            <span className="">Locked</span>
+            <span className="flex items-center justify-start">
+              {" "}
+              <Lock /> Locked
+            </span>
           </div>
 
           <div className="text-right">
             <p className="text-xl font-semibold">
               {Math.floor(ethers?.formatEther(balance || "0") * 100) / 100} USDC
             </p>
-            <span className="">Bal</span>
+            <span className="flex items-center justify-end">
+              {" "}
+              <Balance /> Bal
+            </span>
           </div>
         </div>
         {record?.status > 0 && (
