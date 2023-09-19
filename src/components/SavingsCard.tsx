@@ -70,7 +70,7 @@ const SavingsCard = () => {
             </h3>
             <p className="">
               {isCountdownCompleted
-                ? "Earn 20RTK when you break your piggy!"
+                ? "Earn GIVV tokens when you break your piggy!"
                 : "You will be charged 5% penalty if you break before duration"}
             </p>
 

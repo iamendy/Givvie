@@ -3,10 +3,10 @@ Givvie support multiple chains by using their
 chain Id to dynamically link the smart contracts */
 
 const connect = {
-  //celo
-  44787: {
+  //Base Goerli
+  84531: {
     //givvie contract
-    address: "0xf489A67CAc0ceEd79850323e35b6446e475CEAa6",
+    address: "0xf0e6ed689202d980c59B516Faa54f4c403023097",
     abi: [
       {
         inputs: [
@@ -317,7 +317,7 @@ const connect = {
     ],
     //givvie token contract
     givv: {
-      address: "0x54B30322BeBd0245164B964009fA94F584918E20",
+      address: "0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566",
       abi: [
         {
           inputs: [
@@ -604,7 +604,7 @@ const connect = {
     },
     //usdc
     usdc: {
-      address: "0x467a789c8A76BB82C463897CFf918B43AEf41A2A",
+      address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
       abi: [
         {
           inputs: [],
@@ -937,10 +937,10 @@ const connect = {
     },
   },
 
-  //gnosis test
-  10200: {
+  //Linea testnet
+  59140: {
     //givvie contract
-    address: "0xF54aB48f98dB9e6d88E417626c52a89fDccFd281",
+    address: "0xf0e6ed689202d980c59B516Faa54f4c403023097",
     abi: [
       {
         inputs: [
@@ -1251,7 +1251,7 @@ const connect = {
     ],
     //givvie token contract
     givv: {
-      address: "0x5B2075A205C07B2c2BaC842D3CC50B02D36Ea804",
+      address: "0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566",
       abi: [
         {
           inputs: [
@@ -1538,7 +1538,7 @@ const connect = {
     },
     //usdc
     usdc: {
-      address: "0x8E92Fd44624Ffe6e19828d89b1574BC484be2287",
+      address: "0x6caD0d4880ac9f1bf756AB6a76eA4Cb339D6022d",
       abi: [
         {
           inputs: [],

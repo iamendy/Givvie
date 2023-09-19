@@ -4,7 +4,7 @@ import { decodeText } from "../../helpers/stringEncoder";
 import { ethers } from "ethers";
 
 import { createWalletClient, http, publicActions } from "viem";
-import { celoAlfajores, gnosisChiado } from "viem/chains";
+import { baseGoerli, lineaTestnet } from "viem/chains";
 import { privateKeyToAccount } from "viem/accounts";
 
 const PK = process.env.PRIVATE_KEY as string;
@@ -23,7 +23,7 @@ export default async function handler(
   //dynamically handle multi-contracts
   const client = createWalletClient({
     account,
-    chain: chain == "10200" ? gnosisChiado : celoAlfajores,
+    chain: chain == "84531" ? baseGoerli : lineaTestnet,
     transport: http(),
   }).extend(publicActions);
 

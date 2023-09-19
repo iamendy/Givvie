@@ -3,14 +3,14 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import type { AppProps } from "next/app";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { celoAlfajores, gnosisChiado } from "wagmi/chains";
+import { baseGoerli, lineaTestnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { useEffect, useState } from "react";
 import { Inter } from "next/font/google";
 import Layout from "../components/Layout";
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [celoAlfajores, gnosisChiado],
+  [baseGoerli, lineaTestnet],
   [publicProvider()]
 );
 
