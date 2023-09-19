@@ -3,11 +3,11 @@ import DepositNaira from "../components/DepositNaira";
 import HandleSavings from "../components/HandleSavings";
 
 const SaveBox = () => {
-  const [selected, setSelected] = useState("savings");
+  const [selected, setSelected] = useState("deposit");
 
   return (
     <aside className="lg:w-[30%] p-4">
-      <form className="">
+      <div className="">
         <div className="flex items-center justify-between text-center mb-2">
           <div
             onClick={() => setSelected("deposit")}
@@ -32,7 +32,7 @@ const SaveBox = () => {
         </div>
 
         {selected === "deposit" ? <DepositNaira /> : <HandleSavings />}
-      </form>
+      </div>
     </aside>
   );
 };

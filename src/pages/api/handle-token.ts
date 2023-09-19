@@ -1,30 +1,33 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { createWalletClient, http, parseEther } from "viem";
-import { celoAlfajores } from "viem/chains";
-import { privateKeyToAccount } from "viem/accounts";
-
-const PK = process.env.PRIVATE_KEY as string;
-const account = privateKeyToAccount(PK);
-
-const client = createWalletClient({
-  account,
-  chain: celoAlfajores,
-  transport: http(),
-});
+import connect from "../../constants/connect";
+import { decodeText } from "../../helpers/stringEncoder";
+import { client } from "../../constants/walletClient";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
+  const { tx_ref } = req.body;
+
   if (req.method === "POST") {
     try {
-      const hash = await client.sendTransaction({
-        to: "0xCa1604B345ac7001e7F442676d02F0E22797118a",
-        value: parseEther("0.1"),
+      //decode receiver address and amount
+      const receiverAddress = decodeText(tx_ref);
+
+      //prepare txn
+      const { request } = await client.simulateContract({
+        address: connect?.usdc.address,
+        abi: connect?.usdc?.abi,
+        functionName: "transfer",
+        args: [receiverAddress, 100000000000000000],
       });
-      res.status(200).json({ msg: hash });
+
+      //transfer the amount to receiver
+      const transactionHash = await client.writeContract(request);
+
+      res.status(200).json({ tx_hash: transactionHash });
     } catch (e) {
-      res.status(500).json({ msg: e });
+      res.status(500).json(e);
     }
   }
 }

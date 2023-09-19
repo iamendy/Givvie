@@ -10,41 +10,64 @@ import { ethers } from "ethers";
 import SavingsGraph from "./SavingsGraph";
 
 const ActivityBox = () => {
-  const { address } = useAccount();
-  const [user, setUser] = useState("");
+  // const { address } = useAccount();
+  // const [user, setUser] = useState("");
 
-  const getUser = () => {
-    axios
-      .get(`/api/get-user?address=${address}`)
-      .then(({ data }) => setUser(removeEmail(data?.email)))
-      .catch((e) => console.log(e));
-  };
+  // const getUser = () => {
+  //   axios
+  //     .get(`/api/get-user?address=${address}`)
+  //     .then(({ data }) => setUser(removeEmail(data?.email)))
+  //     .catch((e) => console.log(e));
+  // };
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   getUser();
+  // }, []);
 
-  const { data: tokenBalance } = useContractRead({
-    address: connect?.token.address,
-    abi: connect?.token?.abi,
-    functionName: "balanceOf",
-    args: [address],
-    watch: true,
-  });
+  // const { data: tokenBalance } = useContractRead({
+  //   address: connect?.token.address,
+  //   abi: connect?.token?.abi,
+  //   functionName: "balanceOf",
+  //   args: [address],
+  //   watch: true,
+  // });
 
   return (
-    <main className="lg:w-[70%] h-full p-4">
-      <div className="flex justify-between mb-6">
-        <h3>Welcome {user},</h3>
-        <div className="flex">
-          <Fire /> {ethers.formatEther(tokenBalance || "0")}
-        </div>
+    <main className="w-[70%] ">
+      <div className=" justify-end mb-6 hidden">
+        <div className="flex">6.45</div>
       </div>
 
-      <div className="flex justify-between mt-5">
-        {currencies.map((currency, index) => (
-          <SavingsCard key={index} currency={currency} />
-        ))}
+      <div className="flex gap-x-8 items-cente">
+        <div className=" bg-gray/5 rounded-lg p-8 w-full">
+          <div className="flex flex-col gap-y-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xl font-semibold">250USDC</p>
+                <span className="">Locked</span>
+              </div>
+
+              <div className="text-right">
+                <p className="text-xl font-semibold">550USDC</p>
+                <span className="">Bal</span>
+              </div>
+            </div>
+
+            <div className="font-mono text-xl text-center">00:30:30</div>
+
+            <button className="bg-green-700 hover:bg-green-700/90 active:bg-green-700 text-white inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7">
+              Break Piggy
+            </button>
+          </div>
+        </div>
+
+        <div className=" bg-gray/5 rounded-lg p-8 w-full text-right">
+          <p className="text-xl font-semibold">250GIVV</p>
+          <span className="flex justify-end">
+            <Fire />
+            Earned
+          </span>
+        </div>
       </div>
 
       <SavingsGraph />

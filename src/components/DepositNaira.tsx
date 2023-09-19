@@ -2,55 +2,47 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import { Fragment, useState } from "react";
+import { useAccount } from "wagmi";
+import { encodeText } from "../helpers/stringEncoder";
 
 const paymentOptions = [
   {
     name: "Flutterwave",
+    id: "flw",
   },
   {
     name: "FonBnk",
+    id: "fbk",
   },
 ];
 
 const DepositNaira = () => {
   const [selected, setSelected] = useState(paymentOptions[0]);
   const [isActive, setIsActive] = useState(true);
+  const [amount, setAmount] = useState("");
+  const { address } = useAccount();
 
-  const config = {
+  const flutterwaveConfig = {
     public_key: "FLWPUBK_TEST-6cf95a5ea440ce920b79d79ef20a4c8d-X",
-    tx_ref: Date.now(),
-    amount: 100,
+    tx_ref: encodeText(address),
+    amount: amount,
     currency: "NGN",
     payment_options: "card,mobilemoney,ussd",
     redirect_url: "/payment-success",
     customer: {
-      email: "user@gmail.com",
-      phone_number: "07066425471",
-      name: "John Doe",
+      email: "givviedapp@gmail.com",
+      phone_number: "+2347012345311",
+      name: "Givve Dapp",
     },
-    meta: { address: "12345" },
     customizations: {
-      title: "my Payment Title",
-      description: "Payment for items in cart",
+      title: "Givvie: Save your naira in USDC",
+      description: "Easy onRamp, Easy Savings",
       logo: "https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg",
     },
   };
 
-  //const handleFlutterPayment = useFlutterwave(config);
+  const handleFlutterPayment = useFlutterwave(flutterwaveConfig);
 
-  // <button
-  //   onClick={() => {
-  //     handleFlutterPayment({
-  //       callback: (response) => {
-  //         console.log(response);
-  //         closePaymentModal(); // this will close the modal programmatically
-  //       },
-  //       onClose: () => {},
-  //     });
-  //   }}
-  // >
-  //   pay button
-  // </button>
   return (
     <div className="flex flex-col gap-y-5 py-4">
       <div>
@@ -59,8 +51,10 @@ const DepositNaira = () => {
         </label>
         <div className="mt-2">
           <input
+            onChange={(e) => setAmount(e.target.value)}
+            value={amount}
             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-            type="email"
+            type="text"
             placeholder="50"
           ></input>
           <div className="pt-1 ">
@@ -125,9 +119,29 @@ const DepositNaira = () => {
         </Listbox>
       </div>
 
-      <button className="bg-yellow hover:bg-yellow/90 text-black inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7">
-        Make payment
-      </button>
+      {selected?.id == "flw" ? (
+        <button
+          onClick={() => {
+            handleFlutterPayment({
+              callback: (response) => {
+                console.log(response);
+                closePaymentModal(); // this will close the modal programmatically
+              },
+              onClose: () => {},
+            });
+          }}
+          className="bg-yellow hover:bg-yellow/90 text-black inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7"
+        >
+          Make payment
+        </button>
+      ) : (
+        <a
+          href={`https://pay.fonbnk.com/?amount=${amount}&freezeAmount=1&freezeWallet=1&network=POLYGON&address=${address}`}
+          className="bg-yellow hover:bg-yellow/90 text-black inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7"
+        >
+          Make payment
+        </a>
+      )}
     </div>
   );
 };
