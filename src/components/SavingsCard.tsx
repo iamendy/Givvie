@@ -13,38 +13,40 @@ import Loader from "./icons/Loader";
 
 const SavingsCard = () => {
   const balance = useGetBalance("usdc");
-  // const { record } = useGetRecord(currency);
-  // const [isOpen, setIsOpen] = useState(false);
+  const record = useGetRecord();
 
-  // const { days, hours, minutes, seconds, isCountdownCompleted } = useCountdown(
-  //   parseInt(record?.expiresAt)
-  // );
+  console.log(record);
 
-  // const { config, refetch } = usePrepareContractWrite({
-  //   address: connect?.address,
-  //   abi: connect?.abi,
-  //   functionName: "breakPiggy",
-  //   args: [currency?.symbol],
-  // });
+  const [isOpen, setIsOpen] = useState(false);
 
-  // const {
-  //   write: breakPiggy,
-  //   data,
-  //   isLoading: isBreaking,
-  // } = useContractWrite(config);
+  const { days, hours, minutes, seconds, isCountdownCompleted } = useCountdown(
+    parseInt(record?.expiresAt)
+  );
 
-  // const { isLoading: isWaitingTx } = useWaitForTransaction({
-  //   hash: data?.hash,
-  //   onSuccess(tx) {
-  //     //disable modal
-  //     setIsOpen(false);
-  //   },
-  // });
+  const { config, refetch } = usePrepareContractWrite({
+    address: connect?.address,
+    abi: connect?.abi,
+    functionName: "breakPiggy",
+  });
 
-  // const handleBreak = async () => {
-  //   await refetch();
-  //   breakPiggy?.();
-  // };
+  const {
+    write: breakPiggy,
+    data,
+    isLoading: isBreaking,
+  } = useContractWrite(config);
+
+  const { isLoading: isWaitingTx } = useWaitForTransaction({
+    hash: data?.hash,
+    onSuccess(tx) {
+      //disable modal
+      setIsOpen(false);
+    },
+  });
+
+  const handleBreak = async () => {
+    await refetch();
+    breakPiggy?.();
+  };
 
   return (
     // <div className="relative shadow-md bg-light w-[30%] rounded-md p-3">
@@ -139,7 +141,11 @@ const SavingsCard = () => {
       <div className="flex flex-col gap-y-5">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xl font-semibold">250USDC</p>
+            <p className="text-xl font-semibold">
+              {Math.floor(ethers?.formatEther(record?.balance || "0") * 100) /
+                100}
+              USDC
+            </p>
             <span className="">Locked</span>
           </div>
 
@@ -150,12 +156,26 @@ const SavingsCard = () => {
             <span className="">Bal</span>
           </div>
         </div>
+        {record?.status > 0 && (
+          <>
+            <div className="font-mono text-xl text-center">
+              {isCountdownCompleted ? (
+                <p>Completed!</p>
+              ) : (
+                <>
+                  <p className="text-xs">Locked until</p>
+                  <p>
+                    {days}:{hours}:{minutes}:{seconds}
+                  </p>
+                </>
+              )}
+            </div>
 
-        <div className="font-mono text-xl text-center">00:30:30</div>
-
-        <button className="bg-green-700 hover:bg-green-700/90 active:bg-green-700 text-white inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7">
-          Break Piggy
-        </button>
+            <button className="bg-green-700 hover:bg-green-700/90 active:bg-green-700 text-white inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7">
+              Break Piggy
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

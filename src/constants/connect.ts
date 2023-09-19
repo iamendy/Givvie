@@ -1,22 +1,19 @@
 const connect = {
   //givvie contract
-  address: "0x262848dA5f3eA7408d0ecF5E2DAa76e99338A74c",
+  address: "0x66b8B3B2061d68B3FE2d0995B5DDfaDe21BeDd76",
   abi: [
+    {
+      inputs: [],
+      name: "breakPiggy",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
     {
       inputs: [
         {
           internalType: "address",
-          name: "_euroTokenAddress",
-          type: "address",
-        },
-        {
-          internalType: "address",
-          name: "_gbpTokenAddress",
-          type: "address",
-        },
-        {
-          internalType: "address",
-          name: "_usdTokenAddress",
+          name: "_usdcTokenAddress",
           type: "address",
         },
       ],
@@ -31,12 +28,6 @@ const connect = {
           internalType: "address",
           name: "owner",
           type: "address",
-        },
-        {
-          indexed: false,
-          internalType: "string",
-          name: "currency",
-          type: "string",
         },
         {
           indexed: false,
@@ -65,12 +56,6 @@ const connect = {
         },
         {
           indexed: false,
-          internalType: "string",
-          name: "currency",
-          type: "string",
-        },
-        {
-          indexed: false,
           internalType: "uint256",
           name: "amount",
           type: "uint256",
@@ -92,6 +77,24 @@ const connect = {
       type: "event",
     },
     {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "_duration",
+          type: "uint256",
+        },
+      ],
+      name: "createPiggy",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
       anonymous: false,
       inputs: [
         {
@@ -111,6 +114,52 @@ const connect = {
       type: "event",
     },
     {
+      inputs: [],
+      name: "renounceOwnership",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "_givvieTokenAddress",
+          type: "address",
+        },
+      ],
+      name: "setGivvieToken",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "newOwner",
+          type: "address",
+        },
+      ],
+      name: "transferOwnership",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
+        },
+      ],
+      name: "updateBalance",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
       anonymous: false,
       inputs: [
         {
@@ -118,12 +167,6 @@ const connect = {
           internalType: "uint256",
           name: "amount",
           type: "uint256",
-        },
-        {
-          indexed: false,
-          internalType: "string",
-          name: "currency",
-          type: "string",
         },
         {
           indexed: false,
@@ -138,50 +181,9 @@ const connect = {
     {
       inputs: [
         {
-          internalType: "string",
-          name: "_currency",
-          type: "string",
-        },
-      ],
-      name: "breakPiggy",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "_duration",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "_currency",
-          type: "string",
-        },
-      ],
-      name: "createPiggy",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
           internalType: "address",
           name: "_owner",
           type: "address",
-        },
-        {
-          internalType: "string",
-          name: "_currency",
-          type: "string",
         },
       ],
       name: "getHistory",
@@ -190,16 +192,16 @@ const connect = {
           components: [
             {
               internalType: "uint256",
-              name: "duration",
+              name: "amount",
               type: "uint256",
             },
             {
               internalType: "uint256",
-              name: "amount",
+              name: "duration",
               type: "uint256",
             },
           ],
-          internalType: "struct Rainfy.Savings[]",
+          internalType: "struct Givvie.Savings[]",
           name: "",
           type: "tuple[]",
         },
@@ -214,11 +216,6 @@ const connect = {
           name: "_owner",
           type: "address",
         },
-        {
-          internalType: "string",
-          name: "_currency",
-          type: "string",
-        },
       ],
       name: "getRecord",
       outputs: [
@@ -230,7 +227,7 @@ const connect = {
               type: "uint256",
             },
             {
-              internalType: "enum Rainfy.Status",
+              internalType: "enum Givvie.Status",
               name: "status",
               type: "uint8",
             },
@@ -245,9 +242,22 @@ const connect = {
               type: "uint256",
             },
           ],
-          internalType: "struct Rainfy.Account",
+          internalType: "struct Givvie.Account",
           name: "",
           type: "tuple",
+        },
+      ],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "givvieTokenAddress",
+      outputs: [
+        {
+          internalType: "contract IERC20",
+          name: "",
+          type: "address",
         },
       ],
       stateMutability: "view",
@@ -259,11 +269,6 @@ const connect = {
           internalType: "address",
           name: "_owner",
           type: "address",
-        },
-        {
-          internalType: "string",
-          name: "_currency",
-          type: "string",
         },
       ],
       name: "isActive",
@@ -292,7 +297,7 @@ const connect = {
     },
     {
       inputs: [],
-      name: "rainfyTokenAddress",
+      name: "usdcTokenAddress",
       outputs: [
         {
           internalType: "contract IERC20",
@@ -303,67 +308,16 @@ const connect = {
       stateMutability: "view",
       type: "function",
     },
-    {
-      inputs: [],
-      name: "renounceOwnership",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "_rainfyTokenAddress",
-          type: "address",
-        },
-      ],
-      name: "setRainfyToken",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "newOwner",
-          type: "address",
-        },
-      ],
-      name: "transferOwnership",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "_currency",
-          type: "string",
-        },
-      ],
-      name: "updateBalance",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
   ],
   //givvie token contract
   givv: {
-    address: "0x5A505E3f96bB4d322aaA9Eb81d82B330DB2dAA85",
+    address: "0x22E050779bcF1CF16b07E3a7f6571A621b34F566",
     abi: [
       {
         inputs: [
           {
             internalType: "address",
-            name: "_rainfyHQ",
+            name: "_givvieHQ",
             type: "address",
           },
         ],
