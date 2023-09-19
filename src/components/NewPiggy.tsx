@@ -12,20 +12,20 @@ import { useDebounce } from "../hooks/useDebounce";
 import Loader from "./icons/Loader";
 import connect from "../constants/connect";
 
-const NewPiggy = ({ selectedCurrency }) => {
+const NewPiggy = () => {
   const [amount, setAmount] = useState("");
   const [duration, setDuration] = useState("");
   const [isApproved, setIsApproved] = useState(false);
 
   //to check amount input
-  const { balance } = useGetBalance(selectedCurrency);
+  const balance = useGetBalance("usdc");
 
   const debouncedAmount = useDebounce<string>(amount, 500);
   const debouncedDuration = useDebounce<string>(duration, 500);
 
   const { config } = usePrepareContractWrite({
-    address: selectedCurrency?.address,
-    abi: selectedCurrency?.abi,
+    address: connect?.usdc.address,
+    abi: connect?.usdc.abi,
     functionName: "approve",
     args: [connect?.address, ethers.parseEther(debouncedAmount || "0")],
   });
@@ -50,11 +50,7 @@ const NewPiggy = ({ selectedCurrency }) => {
     address: connect?.address,
     abi: connect?.abi,
     functionName: "createPiggy",
-    args: [
-      ethers.parseEther(debouncedAmount || "0"),
-      debouncedDuration,
-      selectedCurrency?.symbol,
-    ],
+    args: [ethers.parseEther(debouncedAmount || "0"), debouncedDuration],
   });
 
   const {
@@ -87,8 +83,8 @@ const NewPiggy = ({ selectedCurrency }) => {
             onChange={(e) => setAmount(e.target.value)}
             disabled={isApproved || isApproving || isWaitingTx}
             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-            type="email"
-            placeholder="50"
+            type="text"
+            placeholder="USDC"
           ></input>
         </div>
       </div>

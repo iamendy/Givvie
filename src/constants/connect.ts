@@ -1,14 +1,7 @@
 const connect = {
   //givvie contract
-  address: "0x66b8B3B2061d68B3FE2d0995B5DDfaDe21BeDd76",
+  address: "0xEFD7333c0F2c13e46A5C70152f493a4432fAeF4d",
   abi: [
-    {
-      inputs: [],
-      name: "breakPiggy",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
     {
       inputs: [
         {
@@ -77,24 +70,6 @@ const connect = {
       type: "event",
     },
     {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "_duration",
-          type: "uint256",
-        },
-      ],
-      name: "createPiggy",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
       anonymous: false,
       inputs: [
         {
@@ -114,52 +89,6 @@ const connect = {
       type: "event",
     },
     {
-      inputs: [],
-      name: "renounceOwnership",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "_givvieTokenAddress",
-          type: "address",
-        },
-      ],
-      name: "setGivvieToken",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "address",
-          name: "newOwner",
-          type: "address",
-        },
-      ],
-      name: "transferOwnership",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "_amount",
-          type: "uint256",
-        },
-      ],
-      name: "updateBalance",
-      outputs: [],
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-    {
       anonymous: false,
       inputs: [
         {
@@ -177,6 +106,31 @@ const connect = {
       ],
       name: "Updated",
       type: "event",
+    },
+    {
+      inputs: [],
+      name: "breakPiggy",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
+        },
+        {
+          internalType: "uint256",
+          name: "_duration",
+          type: "uint256",
+        },
+      ],
+      name: "createPiggy",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
     },
     {
       inputs: [
@@ -297,6 +251,52 @@ const connect = {
     },
     {
       inputs: [],
+      name: "renounceOwnership",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "_givvieTokenAddress",
+          type: "address",
+        },
+      ],
+      name: "setGivvieToken",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "address",
+          name: "newOwner",
+          type: "address",
+        },
+      ],
+      name: "transferOwnership",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [
+        {
+          internalType: "uint256",
+          name: "_amount",
+          type: "uint256",
+        },
+      ],
+      name: "updateBalance",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
+      inputs: [],
       name: "usdcTokenAddress",
       outputs: [
         {
@@ -311,7 +311,7 @@ const connect = {
   ],
   //givvie token contract
   givv: {
-    address: "0x22E050779bcF1CF16b07E3a7f6571A621b34F566",
+    address: "0x017EfD05d389F31eA5cA3e8D07FF5248bBC8211b",
     abi: [
       {
         inputs: [
@@ -598,7 +598,7 @@ const connect = {
   },
   //usdc
   usdc: {
-    address: "0xAeF0CB9Aa1bD9270A18f918Efe7f1498CDC1714a",
+    address: "0x38ee574e01B9D5EF1B16B0665a140268eF8CE7A0",
     abi: [
       {
         inputs: [],

@@ -17,11 +17,11 @@ const UpdatePiggy = () => {
   const debouncedAmount = useDebounce<string>(amount, 500);
 
   //to check amount input
-  const { balance } = useGetBalance(selectedCurrency);
+  const balance = useGetBalance("usdc");
 
   const { config } = usePrepareContractWrite({
-    address: selectedCurrency?.address,
-    abi: selectedCurrency?.abi,
+    address: connect?.usdc.address,
+    abi: connect?.usdc?.abi,
     functionName: "approve",
     args: [connect?.address, ethers.parseEther(debouncedAmount || "0")],
   });
@@ -46,7 +46,7 @@ const UpdatePiggy = () => {
     address: connect?.address,
     abi: connect?.abi,
     functionName: "updateBalance",
-    args: [ethers.parseEther(debouncedAmount || "0"), selectedCurrency?.symbol],
+    args: [ethers.parseEther(debouncedAmount || "0")],
   });
 
   const {
@@ -77,8 +77,8 @@ const UpdatePiggy = () => {
             onChange={(e) => setAmount(e.target.value)}
             disabled={isApproved || isApproving || isWaitingTx}
             className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-            type="email"
-            placeholder="50"
+            type="text"
+            placeholder="USDC"
           ></input>
         </div>
       </div>
