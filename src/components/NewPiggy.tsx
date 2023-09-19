@@ -5,12 +5,13 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction,
 } from "wagmi";
-import { ethers } from "ethers";
+
 import useGetBalance from "../hooks/useGetBalance";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDebounce } from "../hooks/useDebounce";
 import Loader from "./icons/Loader";
 import connect from "../constants/connect";
+import { ethers } from "ethers";
 
 const NewPiggy = () => {
   const [amount, setAmount] = useState("");
