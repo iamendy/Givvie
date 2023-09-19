@@ -2,7 +2,7 @@
 
 Live Demo - [Loom](https://www.loom.com) <br />
 Live Link - [Chainwise](https://rainfy.vercel.app) <br />
-Slides - [Slides](https://givvie.vercel.app)
+Slides - [Slides](https://givvie.vercel.app/GivvieSlides.pdf)
 
 ## ✨ Inspiration
 
@@ -18,9 +18,9 @@ Just like planting a seed that grows into a mighty tree, [Givvie](https://givvie
 
 Our features which includes :
 
-- 1. setting savings duration,
-- 2. visualizing your progress
-- 3. early retrieval penalty, which inspire and guide you on your journey to financial well-being.
+- Setting savings duration,
+- Visualizing your progress
+- Early retrieval penalty, which inspire and guide you on your journey to financial well-being.
 
 You also earn GIVV tokens when you meet your savings target which allows you to access future features like utility bills payments, onchain loan services and so much more.
 
@@ -28,29 +28,17 @@ You also earn GIVV tokens when you meet your savings target which allows you to 
 
 ## 💻 How we built Givvie
 
-We created 2 smart contracts in Solidity, [**Givvie.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/Rainfy.sol) and [**GivvieToken.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/RainfyToken.sol). In order to simulate USDC without the extra delay, we created a fake USDC contract [**USDCToken.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/USDCToken.sol)
+We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/Rainfy.sol) and [**GivvieToken.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/RainfyToken.sol). In order to simulate USDC without the extra delay, we created a fake USDC contract [**USDCToken.sol**](https://github.com/iamendy/Givvie/blob/main/contract/USDCToken.sol)
 
 - The Givvie contract handles the piggy bank creation, management and breaking after duration. This contract is deployed on Linea Goerli and Base Goerli chains.
 
-1. Transfer USDC
-   [View on Linear Goerli](https://)
+1. Transfer USDC - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
 
-   [View on Base Goerli](https://)
+2. Successful saving - - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
 
-2. Successful saving
-   [View on Linea Goerli](https://)
+3. Break Piggy - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
 
-   [View on Base Goerli](https://)
-
-3. Break Piggy
-   [View on Linear Goerli](https://)
-
-   [View on Base Goerli](https://)
-
-4. Mint GivvieToken
-   [View on Linear Goerli](https://)
-
-   [View on Base Goerli](https://)
+4. Mint GivvieToken - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
 
 - The GivvieToken is used for rewarding users who successfully save and also serves as a dApp utility token. It is an ERC20 token that users earn when they successfully achieve their savings goal
   - [View on Linea Goerli](https://)
@@ -58,7 +46,7 @@ We created 2 smart contracts in Solidity, [**Givvie.sol**](https://github.com/ia
 
 For dapp development, We used **`NextJs/Typescript`**, **`Wagmi`**, **`Rainbowkit`**, **`Viem`** **`nodejs`** and **`TailwindCSS`** .
 
-Rainfy integrates with Flutterwave and FonBnk which allows easy Naira onRamp, thereby allowing users greater flexibility to onboard.
+Rainfy integrates with **`Flutterwave`** and **`FonBnk`** which allows easy Naira onRamp, thereby allowing users greater flexibility to onboard.
 
 ## 🚀 Accomplishments that we're proud of
 
