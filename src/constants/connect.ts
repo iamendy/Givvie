@@ -1,5 +1,5 @@
 const connect = {
-  //rainfy contract
+  //givvie contract
   address: "0x262848dA5f3eA7408d0ecF5E2DAa76e99338A74c",
   abi: [
     {
@@ -355,8 +355,8 @@ const connect = {
       type: "function",
     },
   ],
-  //rainfy token contract
-  token: {
+  //givvie token contract
+  givv: {
     address: "0x5A505E3f96bB4d322aaA9Eb81d82B330DB2dAA85",
     abi: [
       {
@@ -642,6 +642,7 @@ const connect = {
       },
     ],
   },
+  //usdc
   usdc: {
     address: "0xAeF0CB9Aa1bD9270A18f918Efe7f1498CDC1714a",
     abi: [
