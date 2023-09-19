@@ -9,11 +9,9 @@ function splitData(data: any) {
       x.push(ethers.formatEther(data[i].amount || 0));
       y.push(parseInt(data[i].duration));
     }
-
-    return [x, y];
   }
 
-  return [];
+  return [x, y];
 }
 
 export default splitData;

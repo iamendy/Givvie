@@ -8,6 +8,7 @@ import {
   useChainModal,
 } from "@rainbow-me/rainbowkit";
 import Logo from "./icons/Logo";
+import ChevronDown from "./icons/ChevronDown";
 
 const Navbar = () => {
   const { openConnectModal } = useConnectModal();
@@ -37,7 +38,7 @@ const Navbar = () => {
 
           {openAccountModal && (
             <>
-              <Link href="/dashboard">Dashboard</Link>
+              <Link href="/dashboard"> Dashboard </Link>
 
               <button
                 onClick={openAccountModal}
@@ -50,13 +51,13 @@ const Navbar = () => {
             </>
           )}
 
-          {isConnected && chain?.id !== 44787 /*59140*/ && (
+          {openChainModal && (
             <button
-              className="bg-red-500 rounded-md text-white p-2"
+              className="border border-gray rounded-md text-black p-2 flex"
               onClick={openChainModal}
               type="button"
             >
-              Wrong Network
+              {chain?.name} <ChevronDown />
             </button>
           )}
         </div>

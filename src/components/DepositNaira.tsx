@@ -5,6 +5,7 @@ import { Fragment, useEffect, useState } from "react";
 import { useAccount, useNetwork } from "wagmi";
 import { encodeText } from "../helpers/stringEncoder";
 import { useDebounce } from "../hooks/useDebounce";
+import Loader from "./icons/Loader";
 
 const paymentOptions = [
   {
@@ -20,6 +21,7 @@ const paymentOptions = [
 const DepositNaira = () => {
   const [selected, setSelected] = useState(paymentOptions[0]);
   const [isActive, setIsActive] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [amountUSDC, setAmountUSDC] = useState("");
   const debouncedAmount = useDebounce(amount);
@@ -35,7 +37,7 @@ const DepositNaira = () => {
   }, [debouncedAmount]);
 
   const flutterwaveConfig = {
-    public_key: "FLWPUBK_TEST-6cf95a5ea440ce920b79d79ef20a4c8d-X",
+    public_key: process.env.NEXT_PUBLIC_FLW_KEY,
     tx_ref: encodeText(`${address},${amountUSDC},${chain?.id}`),
     amount: amount,
     currency: "NGN",
@@ -142,6 +144,7 @@ const DepositNaira = () => {
       {selected?.id == "flw" ? (
         <button
           onClick={() => {
+            setIsLoading(true);
             handleFlutterPayment({
               callback: (response) => {
                 console.log(response);
@@ -152,7 +155,7 @@ const DepositNaira = () => {
           }}
           className="bg-yellow hover:bg-yellow/90 text-black inline-flex w-full items-center justify-center rounded-md px-3.5 py-2.5 font-semibold leading-7"
         >
-          Make payment
+          {isLoading ? <Loader alt /> : "Make payment"}
         </button>
       ) : (
         <a

@@ -936,10 +936,11 @@ const connect = {
       ],
     },
   },
-  //fantom test
-  12002: {
+
+  //gnosis test
+  10200: {
     //givvie contract
-    address: "0xf489A67CAc0ceEd79850323e35b6446e475CEAa6",
+    address: "0xF54aB48f98dB9e6d88E417626c52a89fDccFd281",
     abi: [
       {
         inputs: [
@@ -1250,7 +1251,7 @@ const connect = {
     ],
     //givvie token contract
     givv: {
-      address: "0x54B30322BeBd0245164B964009fA94F584918E20",
+      address: "0x5B2075A205C07B2c2BaC842D3CC50B02D36Ea804",
       abi: [
         {
           inputs: [
@@ -1537,7 +1538,7 @@ const connect = {
     },
     //usdc
     usdc: {
-      address: "0x467a789c8A76BB82C463897CFf918B43AEf41A2A",
+      address: "0x8E92Fd44624Ffe6e19828d89b1574BC484be2287",
       abi: [
         {
           inputs: [],

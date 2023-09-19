@@ -66,7 +66,7 @@ const SavingsGraph = () => {
         history?.length > 0 ? (
           <Line data={chartData} />
         ) : (
-          <div className="text-center">No record found</div>
+          <div className="text-left">No record found</div>
         )
       }
     </div>
