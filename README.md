@@ -30,7 +30,7 @@ You also earn GIVV tokens when you meet your savings target which allows you to 
 
 We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/iamendy/Givvie/blob/main/contract/Givvie.sol) and [**GivvieToken.sol**](https://github.com/iamendy/Givvie/blob/main/contract/GivvieToken.sol). In order to simulate USDC without the extra delay, we created a fake USDC contract [**USDCToken.sol**](https://github.com/iamendy/Givvie/blob/main/contract/USDCToken.sol)
 
-- The Givvie contract handles the piggy bank creation, management and breaking after duration. This contract is deployed on Linea Goerli and Base Goerli chains.
+- The Givvie contract handles the piggy bank creation, management and breaking after duration. All contracts are deployed on Linea Goerli and Base Goerli chains.
 
 1. Transfer USDC - [View on Linear Goerli](https://explorer.goerli.linea.build/tx/0x5084abc18954b66bbeb4052045cc083930370a28b3428b43cfe619d7c71a014f) | [View on Base Goerli](https://goerli.basescan.org/tx/0x2c836016bf10b8817ba06324c8472ed2a7ba934f73506244c6abbc413ca36274)
 
@@ -58,10 +58,11 @@ Givvie integrates with **`Flutterwave`** and **`FonBnk`** which allows easy Nair
 
 We're excited to have built Givvie to enable more users build better financial habits and hedge against inflation by leveraging on the blockchain technology. We plan to:
 
-- Add support for African Currencies,
-- Introduce more usecases for Givvie token as incentives for users to save more.
-- Implement services like decentralized loan protocols, utility bills settlement with digital assets and offRamp integration.
+- Add support for more African currencies.
+- Introduce more personal finance usecases for Givvie token as incentives for users to save more.
+- Implement access to services like decentralized loan protocols, utility bills settlement with digital assets and offRamp integration.
 - Add a liquidity pool that users can easily exchange GIVV Token for USDC.
+- Implement smart wallet accounts for our users to enable easier onboarding.
 
 Thank you!
 
