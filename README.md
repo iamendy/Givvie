@@ -6,7 +6,7 @@ Slides - [Slides](https://givviedapp.vercel.app/GivvieSlides.pdf)
 
 ## ✨ Inspiration
 
-Inflation in Africa is on the rise. As of 2022, the overall inflation rate in Sub-Saharan Africa is expected to grow to 12.2 percent. The surge follows a global tendency, as consumer prices soar all over the world, impacting advanced as well as emerging and developing economies
+Hyperinflation in Africa is on the rise. As of 2022, the overall inflation rate in Sub-Saharan Africa is expected to grow to 12.2 percent. The surge follows a global tendency, as consumer prices soar all over the world, impacting advanced as well as emerging and developing economies
 
 In Nigeria, where most youths are tech savvy, they're converting their Naira to USD through the banks, to hedge against hyperinflation. This comes with extra overhead of account maintenace costs, service charges and other charges by the bank. This approach tend to create more problem than it solves.
 
@@ -58,6 +58,7 @@ Rainfy integrates with **`Flutterwave`** and **`FonBnk`** which allows easy Nair
 
 We're excited to have built Givvie to enable more users build better financial habits and hedge against inflation by leveraging on the blockchain technology. We plan to:
 
+- Add support for African Currencies,
 - Introduce more usecases for Givvie token as incentives for users to save more.
 - Implement services like decentralized loan protocols, utility bills settlement with digital assets and offRamp integration.
 - Add a liquidity pool that users can easily exchange GIVV Token for USDC.
