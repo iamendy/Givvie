@@ -1,7 +1,7 @@
 # Givvie x ETHSAFARIDAO [TAKAI]
 
 Live Demo - [Loom](https://www.loom.com) <br />
-Live Link - [Chainwise](https://givviedapp.vercel.app) <br />
+Live Link - [Givvie](https://givviedapp.vercel.app) <br />
 Slides - [Slides](https://givviedapp.vercel.app/GivvieSlides.pdf)
 
 ## ✨ Inspiration
@@ -32,17 +32,17 @@ We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/ia
 
 - The Givvie contract handles the piggy bank creation, management and breaking after duration. This contract is deployed on Linea Goerli and Base Goerli chains.
 
-1. Transfer USDC - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
+1. Transfer USDC - [View on Linear Goerli](https://explorer.goerli.linea.build/tx/0x5084abc18954b66bbeb4052045cc083930370a28b3428b43cfe619d7c71a014f) | [View on Base Goerli](https://goerli.basescan.org/tx/0x2c836016bf10b8817ba06324c8472ed2a7ba934f73506244c6abbc413ca36274)
 
-2. Successful saving - - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
+2. Successful saving - - [View on Linear Goerli](https://explorer.goerli.linea.build/tx/0x4f6bb72d9aec6cf78233d5d5f77a63eb7eb92aec950c50778af97178f60728b6) | [View on Base Goerli](https://goerli.basescan.org/tx/0x5649b24a64d943e9c755cfcfacd35f9bc3f53d5a234ab8c6cfb737b0ae11e4ce)
 
-3. Break Piggy - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
+3. Break Piggy - [View on Linear Goerli](https://explorer.goerli.linea.build/tx/0xa5e1ddffe04c8f30f4d0ff5a60314c6f70809b453b789883f451b245184577f1) | [View on Base Goerli](https://goerli.basescan.org/tx/0x8b24d613c8fe641328d8b3f96ffcfb4ce3f3d9d107d3555a5ef73ef3996db4ef)
 
-4. Mint GivvieToken - [View on Linear Goerli](https://) | [View on Base Goerli](https://)
+4. Mint GivvieToken - [View on Linear Goerli](https://explorer.goerli.linea.build/tx/0xa5e1ddffe04c8f30f4d0ff5a60314c6f70809b453b789883f451b245184577f1) | [View on Base Goerli](https://goerli.basescan.org/tx/0x8b24d613c8fe641328d8b3f96ffcfb4ce3f3d9d107d3555a5ef73ef3996db4ef)
 
-- The GivvieToken is used for rewarding users who successfully save and also serves as a dApp utility token. It is an ERC20 token that users earn when they successfully achieve their savings goal
-  - [View on Linea Goerli](https://)
-  - [View on Base Chiado](https://)
+- The GivvieToken is used for rewarding users who meet their savings goal and also serves as a dApp utility token on Givvie.
+  - [View on Linea Goerli](https://explorer.goerli.linea.build/address/0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566)
+  - [View on Base Chiado](https://goerli.basescan.org/address/0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566)
 
 For dapp development, We used **`NextJs/Typescript`**, **`Wagmi`**, **`Rainbowkit`**, **`Viem`** **`nodejs`** and **`TailwindCSS`** .
 

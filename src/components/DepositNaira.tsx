@@ -37,7 +37,7 @@ const DepositNaira = () => {
   }, [debouncedAmount]);
 
   const flutterwaveConfig = {
-    public_key: process.env.NEXT_PUBLIC_FLW_KEY,
+    public_key: "FLWPUBK_TEST-6cf95a5ea440ce920b79d79ef20a4c8d-X",
     tx_ref: encodeText(`${address},${amountUSDC},${chain?.id}`),
     amount: amount,
     currency: "NGN",
