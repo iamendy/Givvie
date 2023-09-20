@@ -41,8 +41,8 @@ We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/ia
 4. Mint GivvieToken - [View on Linear Goerli](https://explorer.goerli.linea.build/tx/0xa5e1ddffe04c8f30f4d0ff5a60314c6f70809b453b789883f451b245184577f1) | [View on Base Goerli](https://goerli.basescan.org/tx/0x8b24d613c8fe641328d8b3f96ffcfb4ce3f3d9d107d3555a5ef73ef3996db4ef)
 
 - The GivvieToken is used for rewarding users who meet their savings goal and also serves as a dApp utility token on Givvie.
-  - [View on Linea Goerli](https://explorer.goerli.linea.build/address/0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566)
-  - [View on Base Chiado](https://goerli.basescan.org/address/0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566)
+  - [View on Linea Goerli](https://explorer.goerli.linea.build/token/0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566/token-transfers)
+  - [View on Base Chiado](https://goerli.basescan.org/token/0xb4F4D59a4dA438bb2a61FEE40afefF76dAFCf566)
 
 For dapp development, We used **`NextJs/Typescript`**, **`Wagmi`**, **`Rainbowkit`**, **`Viem`** **`nodejs`** and **`TailwindCSS`** .
 
