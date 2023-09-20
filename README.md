@@ -1,6 +1,6 @@
 # Givvie x ETHSAFARIDAO [TAKAI]
 
-Live Demo - [Loom](https://www.loom.com) <br />
+Live Demo - [Youtube](https://youtu.be/LLQAl4Kr0RA) <br />
 Live Link - [Givvie](https://givviedapp.vercel.app) <br />
 Slides - [Slides](https://givviedapp.vercel.app/GivvieSlides.pdf)
 
