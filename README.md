@@ -12,7 +12,7 @@ In Nigeria, where most youths are tech savvy, they're converting their Naira to 
 
 Just like planting a seed that grows into a mighty tree, [Givvie](https://givviedapp.vercel.app) empowers you to start small and watch your savings flourish over time. With Flutterwave and Fonbnk integration, users can easily purchase USDC through their phone airtime, mobile money and debit cards and save their USDC on the blockchain. Every savings you make is recorded on the blockchain, ensuring the utmost security and transparency. No more hidden fees or surprises – everything is clear and accessible at your fingertips.
 
-## 🍰 What Rainfy does
+## 🍰 What Givvie does
 
 [Givvie](https://givviedapp.vercel.app) is not just an onchain savings app; we're your financial companion, your motivator, and your partner in achieving your financial goals.
 
@@ -28,7 +28,7 @@ You also earn GIVV tokens when you meet your savings target which allows you to 
 
 ## 💻 How we built Givvie
 
-We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/Rainfy.sol) and [**GivvieToken.sol**](https://github.com/iamendy/rainfy/blob/main/contracts/RainfyToken.sol). In order to simulate USDC without the extra delay, we created a fake USDC contract [**USDCToken.sol**](https://github.com/iamendy/Givvie/blob/main/contract/USDCToken.sol)
+We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/iamendy/Givvie/blob/main/contract/Givvie.sol) and [**GivvieToken.sol**](https://github.com/iamendy/Givvie/blob/main/contract/GivvieToken.sol). In order to simulate USDC without the extra delay, we created a fake USDC contract [**USDCToken.sol**](https://github.com/iamendy/Givvie/blob/main/contract/USDCToken.sol)
 
 - The Givvie contract handles the piggy bank creation, management and breaking after duration. This contract is deployed on Linea Goerli and Base Goerli chains.
 
@@ -46,7 +46,7 @@ We created 3 smart contracts in Solidity, [**Givvie.sol**](https://github.com/ia
 
 For dapp development, We used **`NextJs/Typescript`**, **`Wagmi`**, **`Rainbowkit`**, **`Viem`** **`nodejs`** and **`TailwindCSS`** .
 
-Rainfy integrates with **`Flutterwave`** and **`FonBnk`** which allows easy Naira onRamp, thereby allowing users greater flexibility to onboard.
+Givvie integrates with **`Flutterwave`** and **`FonBnk`** which allows easy Naira onRamp, thereby allowing users greater flexibility to onboard.
 
 ## 🚀 Accomplishments that we're proud of
 
